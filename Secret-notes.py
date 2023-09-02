@@ -46,10 +46,13 @@ def back_decrypt():
     if len(text) == 0 or len(password) == 0:
         messagebox.showwarning("", "Xahiş edirik məlumatları tam daxil edin!")
     else:
-        decrypted_text = decrypt_data(password, text)
-        if decrypted_text:
+        try:
+            decrypted_text = decrypt_data(password, text)
             text_1.delete('1.0', 'end')
             text_1.insert('1.0', decrypted_text)
+        except:
+            messagebox.showinfo("", message="Şifrlənmiş məlumatı yenidən daxil etməyin!")
+
 
 pencere = tk.Tk()
 pencere.title('Şifrlənmiş notlar')
@@ -90,4 +93,3 @@ button_2 = tk.Button(text="Mətni deşifrləyin", command=back_decrypt)
 button_2.pack()
 
 pencere.mainloop()
-S
