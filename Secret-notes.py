@@ -32,7 +32,7 @@ def save_and_encrypt():
             with open('shifrlenmish.txt', 'a') as data_file:
                 data_file.write(f"\n{title}\n{encrypted_text}")
         except FileNotFoundError:
-            with open('shifrlenmish.txt', 'a') as data_file:
+            with open('shifrlenmish.txt', 'w') as data_file:
                 data_file.write(f"\n{title}\n{encrypted_text}")
         finally:
             entry_1.delete(0, tk.END)
@@ -90,3 +90,4 @@ button_2 = tk.Button(text="Mətni deşifrləyin", command=back_decrypt)
 button_2.pack()
 
 pencere.mainloop()
+S
